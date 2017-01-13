@@ -23,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/18thletter/personal-library/issues"
   },
-  "homepage": "https://github.com/18thletter/personal-library#readme"
+  "homepage": "https://github.com/18thletter/personal-library#readme",
+  "dependencies": {
+    "commander": "^2.9.0"
+  }
 }
