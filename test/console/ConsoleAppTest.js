@@ -1,5 +1,5 @@
 var assert = require('assert');
-import ConsoleApp from '../src/console/ConsoleApp';
+import ConsoleApp from '../../src/console/ConsoleApp';
 
 describe('ConsoleApp', function() {
   describe('#getPrompt()', function() {
