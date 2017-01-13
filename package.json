@@ -4,7 +4,7 @@
   "description": "A small personal library for keeping track of the books you have and whether you've read them.",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "mocha --require babel-polyfill --compilers js:babel-register"
   },
   "repository": {
     "type": "git",
