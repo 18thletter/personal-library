@@ -12,7 +12,7 @@ describe('ConsoleApp', () => {
     it('should print some helpful stuff', () => {
       assert.ok(ConsoleApp.getHelpText());
     });
-  })
+  });
 
   describe('#parse()', () => {
     it('should parse add', () => {
