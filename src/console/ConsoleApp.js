@@ -59,7 +59,7 @@ module.exports = class ConsoleApp {
 
         } catch (e) {
           // Print the help text if the command is not parseable
-          console.log(ConsoleApp.getHelpText());
+          ConsoleApp.printHelpText();
         }
       }
     });
@@ -86,7 +86,8 @@ module.exports = class ConsoleApp {
     };
   }
 
-  static getHelpText() {
+  static printHelpText() {
+    console.log("\nUsage\n")
     console.log(AddCommand.getDescription());
     console.log(ReadCommand.getDescription());
     console.log(ShowAllCommand.getDescription());
