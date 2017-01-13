@@ -1,6 +1,8 @@
 var co = require('co');
 var prompt = require('co-prompt');
 var CommandFactory = require('../domain/command/CommandFactory');
+var AddCommand = require('../domain/command/AddCommand');
+var ReadCommand = require('../domain/command/ReadCommand');
 var Library = require('../domain/library/Library');
 
 module.exports = class ConsoleApp {
@@ -15,6 +17,9 @@ module.exports = class ConsoleApp {
 
   run() {
     var thisClass = this;
+
+    console.log('Welcome to your library!');
+
     co(function *() {
       var input = '';
       while(true) {
@@ -35,10 +40,17 @@ module.exports = class ConsoleApp {
             break;
           }
 
-          var command = CommandFactory.createCommand(parsed.command, parsed.args);
+          var command = CommandFactory.createCommand(
+            parsed.command,
+            parsed.args,
+            thisClass.previousCommand
+          );
 
           // Run the command
           console.log(command.execute(thisClass.library));
+          if (command instanceof ReadCommand || command instanceof AddCommand) {
+            thisClass.previousCommand = command;
+          }
 
         } catch (e) {
           // Print the help text if the command is not parseable
@@ -49,9 +61,9 @@ module.exports = class ConsoleApp {
   }
 
   static parse(input) {
-    var matches = input.match(/^\s*(add|read|show all|show unread|show all by|show unread by|undo|quit)\s*("\w+")?\s*("\w+")?\s*$/);
+    var matches = input.match(/^\s*(add|read|show all|show unread|show all by|show unread by|undo|quit)\s*("(.+)")?\s*$/);
     if (matches == null) {
-      throw 'error';
+      throw new Error('Unable to parse');
     }
 
     matches = matches.filter(function(match) {
@@ -59,6 +71,9 @@ module.exports = class ConsoleApp {
     });
     var command = matches[1];
     var args = matches.slice(2);
+    if (args.length > 1) {
+      args = args[1].split(/"\s+"/);
+    }
 
     return {
       command: command,
