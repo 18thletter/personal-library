@@ -1,5 +1,33 @@
 var Book = require('../book/Book');
 
+/**
+ * This class uses two objects to store the books.
+ * 
+ * booksByTitle, which is a hash table structured like this:
+ * {
+ *   title1: { book: Book1, index: 0 },
+ *   title2: { book: Book2, index: 1 },
+ *   title3: { book: Book3, index: 0 },
+ *   title4: { book: Book4, index: 1 },
+ *   ...
+ * }
+ * The capital Books are Book objects. The indexes are to locate the position within
+ * the array of books for the booksByAuthor object.
+ * 
+ * The booksByAuthor object is a hash table structured like this:
+ * {
+ *   author1: {
+ *     read: [ Book3 ],
+ *     unread: [ Book1, Book4 ]
+ *   },
+ *   author2: {
+ *     read: [ Book2 ],
+ *     unread: []
+ *   },
+ *   ...
+ * }
+ * The unread and read structures are arrays indexed by integers containing Books.
+ */
 module.exports = class Library {
   constructor() {
     this.booksByTitle = {};
