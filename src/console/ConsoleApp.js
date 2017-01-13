@@ -2,6 +2,10 @@ var co = require('co');
 var prompt = require('co-prompt');
 
 module.exports = class ConsoleApp {
+  constructor() {
+    this.previousCommand = null;
+  }
+
   static getPrompt() {
     return '> ';
   }
