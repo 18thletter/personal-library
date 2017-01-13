@@ -7,4 +7,10 @@ describe('ConsoleApp', function() {
       assert.equal('> ', ConsoleApp.getPrompt());
     });
   });
+
+  describe('#getHelpText()', function() {
+    it('should print some helpful stuff', function() {
+      assert.ok(ConsoleApp.getHelpText());
+    });
+  })
 });
