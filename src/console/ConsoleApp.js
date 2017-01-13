@@ -1,9 +1,12 @@
 var co = require('co');
 var prompt = require('co-prompt');
+var CommandFactory = require('../domain/command/CommandFactory');
+var Library = require('../domain/library/Library');
 
 module.exports = class ConsoleApp {
   constructor() {
     this.previousCommand = null;
+    this.library = new Library();
   }
 
   static getPrompt() {
@@ -31,6 +34,12 @@ module.exports = class ConsoleApp {
             console.log('Bye!');
             break;
           }
+
+          var command = CommandFactory.createCommand(parsed.command, parsed.args);
+
+          // Run the command
+          console.log(command.execute(thisClass.library));
+
         } catch (e) {
           // Print the help text if the command is not parseable
           console.log(ConsoleApp.getHelpText());
