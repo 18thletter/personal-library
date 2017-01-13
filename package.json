@@ -24,5 +24,8 @@
     "url": "https://github.com/18thletter/personal-library/issues"
   },
   "homepage": "https://github.com/18thletter/personal-library#readme",
-  "dependencies": {}
+  "dependencies": {
+    "co": "^4.6.0",
+    "co-prompt": "^1.0.0"
+  }
 }
