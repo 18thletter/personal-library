@@ -1,0 +1,24 @@
+{
+  "name": "rhl-personal-library",
+  "version": "0.1.0",
+  "description": "A small personal library for keeping track of the books you have and whether you've read them.",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/18thletter/personal-library.git"
+  },
+  "keywords": [
+    "library",
+    "books",
+    "book"
+  ],
+  "author": "Raymund Lew",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/18thletter/personal-library/issues"
+  },
+  "homepage": "https://github.com/18thletter/personal-library#readme"
+}
