@@ -9,42 +9,33 @@ import ShowUnreadByCommand from '../../../src/domain/command/ShowUnreadByCommand
 import UndoCommand from '../../../src/domain/command/UndoCommand';
 
 describe('CommandFactory', () => {
-  describe('#stripQuotes()', function() {
-    it('should strip quotes from args', function() {
-      assert.deepEqual(
-        CommandFactory.stripQuotes(['"title"', '"author"']),
-        ['title', 'author']
-      );
-    });
-  });
-
   describe('#createCommand()', () => {
     it('should create an AddCommand', () => {
-      assert.ok(CommandFactory.createCommand('add', ['"title"', '"author"']) instanceof AddCommand);
+      assert.ok(CommandFactory.createCommand('add', ['"title"', '"author"'], null) instanceof AddCommand);
     });
 
     it('should create an ReadCommand', () => {
-      assert.ok(CommandFactory.createCommand('read', ['"title"']) instanceof ReadCommand);
+      assert.ok(CommandFactory.createCommand('read', ['"title"'], null) instanceof ReadCommand);
     });
 
     it('should create an ShowAllCommand', () => {
-      assert.ok(CommandFactory.createCommand('show all', []) instanceof ShowAllCommand);
+      assert.ok(CommandFactory.createCommand('show all', [], null) instanceof ShowAllCommand);
     });
 
     it('should create an ShowUnreadCommand', () => {
-      assert.ok(CommandFactory.createCommand('show unread', []) instanceof ShowUnreadCommand);
+      assert.ok(CommandFactory.createCommand('show unread', [], null) instanceof ShowUnreadCommand);
     });
 
     it('should create an ShowAllByCommand', () => {
-      assert.ok(CommandFactory.createCommand('show all by', ['"author"']) instanceof ShowAllByCommand);
+      assert.ok(CommandFactory.createCommand('show all by', ['"author"'], null) instanceof ShowAllByCommand);
     });
 
     it('should create an ShowUnreadByCommand', () => {
-      assert.ok(CommandFactory.createCommand('show unread by', ['"author"']) instanceof ShowUnreadByCommand);
+      assert.ok(CommandFactory.createCommand('show unread by', ['"author"'], null) instanceof ShowUnreadByCommand);
     });
 
     it('should create an UndoCommand', () => {
-      assert.ok(CommandFactory.createCommand('undo', []) instanceof UndoCommand);
+      assert.ok(CommandFactory.createCommand('undo', [], null) instanceof UndoCommand);
     });
   });
 });
