@@ -17,6 +17,9 @@
   ],
   "author": "Raymund Lew",
   "license": "ISC",
+  "bin": {
+    "library": "./index.js"
+  },
   "bugs": {
     "url": "https://github.com/18thletter/personal-library/issues"
   },
