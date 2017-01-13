@@ -14,4 +14,8 @@ module.exports = class ShowUnreadByCommand {
     }
     return output;
   }
+
+  static getDescription() {
+    return 'show unread by "author": shows the unread books by the given author';
+  }
 }

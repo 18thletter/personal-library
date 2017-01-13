@@ -3,6 +3,11 @@ var prompt = require('co-prompt');
 var CommandFactory = require('../domain/command/CommandFactory');
 var AddCommand = require('../domain/command/AddCommand');
 var ReadCommand = require('../domain/command/ReadCommand');
+var ShowAllCommand = require('../domain/command/ShowAllCommand');
+var ShowUnreadCommand = require('../domain/command/ShowUnreadCommand');
+var ShowAllByCommand = require('../domain/command/ShowAllByCommand');
+var ShowUnreadByCommand = require('../domain/command/ShowUnreadByCommand');
+var UndoCommand = require('../domain/command/UndoCommand');
 var Library = require('../domain/library/Library');
 
 module.exports = class ConsoleApp {
@@ -82,6 +87,13 @@ module.exports = class ConsoleApp {
   }
 
   static getHelpText() {
-    return 'help!!';
+    console.log(AddCommand.getDescription());
+    console.log(ReadCommand.getDescription());
+    console.log(ShowAllCommand.getDescription());
+    console.log(ShowUnreadCommand.getDescription());
+    console.log(ShowAllByCommand.getDescription());
+    console.log(ShowUnreadByCommand.getDescription());
+    console.log(UndoCommand.getDescription());
+    console.log('quit: quits the program');
   }
 }

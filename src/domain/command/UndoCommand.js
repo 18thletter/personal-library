@@ -21,4 +21,8 @@ module.exports = class UndoCommand {
     }
     return output;
   }
+
+  static getDescription() {
+    return 'undo: undoes the last read/add command';
+  }
 }

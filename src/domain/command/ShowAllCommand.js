@@ -10,4 +10,8 @@ module.exports = class ShowAllCommand {
     }
     return output;
   }
+
+  static getDescription() {
+    return 'show all: displays all books in the library';
+  }
 }

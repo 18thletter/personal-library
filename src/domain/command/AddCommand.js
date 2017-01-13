@@ -14,4 +14,8 @@ module.exports = class AddCommand {
     }
     return output;
   }
+
+  static getDescription() {
+    return 'add "title" "author":  adds a book to the library';
+  }
 }

@@ -10,4 +10,8 @@ module.exports = class ShowUnreadCommand {
     }
     return output;
   }
+
+  static getDescription() {
+    return 'show unread: shows all unread books';
+  }
 }

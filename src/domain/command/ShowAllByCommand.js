@@ -14,4 +14,8 @@ module.exports = class ShowAllByCommand {
     }
     return output;
   }
+
+  static getDescription() {
+    return 'show all by "author": shows all the books by the given author';
+  }
 }

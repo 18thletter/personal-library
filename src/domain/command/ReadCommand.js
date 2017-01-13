@@ -13,4 +13,8 @@ module.exports = class ReadCommand {
     }
     return output;
   }
+
+  static getDescription() {
+    return 'read "title": marks a book as read';
+  }
 }
